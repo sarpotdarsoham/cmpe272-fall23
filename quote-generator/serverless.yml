@@ -1,0 +1,27 @@
+service: random-quote-generator
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+      Resource: "arn:aws:s3:::myfavoritequotesss/*"
+
+functions:
+  generate:
+    handler: handler.generateQuote
+    events:
+      - http:
+          path: quote/generate
+          method: get
+          cors: true
+
+resources:
+  Resources:
+    MyRandomQuoteBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: myfavoritequotesss

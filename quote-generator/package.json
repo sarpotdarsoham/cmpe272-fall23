@@ -1,0 +1,16 @@
+{
+    "name": "serverless-doge-meme-generator",
+    "version": "1.0.0",
+    "description": "A serverless Doge meme generator using AWS Lambda and S3.",
+    "main": "handler.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.1478.0",
+        "canvas": "^2.11.2"
+    },
+    "devDependencies": {
+        "serverless-offline": "^8.3.0"
+    }
+}
